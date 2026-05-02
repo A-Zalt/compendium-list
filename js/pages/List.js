@@ -25,7 +25,9 @@ export default {
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in list">
                         <td class="rank">
-                            <p v-if="level.unranked" class="type-label-lg">#{{ i + 1 }}</p>
+                            <p v-if="!level.unranked" class="type-label-lg">
+                                #{{ list.slice(0, i + 1).filter(([lvl]) => lvl && !lvl.startsWith("_")).length }}
+                            </p>
                             <p v-else class="type-label-lg">—</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
