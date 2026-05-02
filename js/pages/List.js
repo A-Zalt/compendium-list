@@ -26,7 +26,7 @@ export default {
                     <tr v-for="([level, err], i) in list">
                         <td class="rank">
                             <p v-if="level" class="type-label-lg">
-                                #{{ list.slice(0, i + 1).filter(([lvl]) => lvl && !lvl.startsWith("_")).length }}
+                                #{{ list.slice(0, i + 1).filter(([lvl]) => lvl && !lvl.unranked).length }}
                             </p>
                             <p v-else class="type-label-lg">—</p>
                         </td>
